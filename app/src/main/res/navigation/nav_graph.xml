@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/CitySearchFragment">
+
+    <fragment
+        android:id="@+id/CitySearchFragment"
+        android:name="com.sample.weatherapp.CitySearchFragment"
+        android:label="Search For City"
+        tools:layout="@layout/search_city">
+
+        <action
+            android:id="@+id/action_CitySearchFragment_to_WeatherListFragment"
+            app:destination="@id/WeatherListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/WeatherListFragment"
+        android:name="com.sample.weatherapp.WeatherListFragment"
+        android:label="Weather List"
+        tools:layout="@layout/weather_list">
+        <action
+            android:id="@+id/action_WeatherListFragment_to_weatherDetailsFragment"
+            app:destination="@id/weatherDetailsFragment" />
+        <argument
+            android:name="CityName"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherDetailsFragment"
+        android:name="com.sample.weatherapp.WeatherDetailsFragment"
+        android:label="WeatherDetailsFragment"
+        tools:layout="@layout/weather_details">
+        <argument
+            android:name="ArgumnetDetails"
+            app:argType="com.sample.weatherapp.network.model.DetailsDataModel" />
+    </fragment>
+</navigation>
